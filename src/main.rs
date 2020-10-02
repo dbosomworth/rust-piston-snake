@@ -80,7 +80,7 @@ fn take_turn(map: &mut Map, snake: &mut Snake) -> bool{
             let (food_x, food_y) = find_empty_spot(map);
             map[food_x as usize][food_y as usize] = -1; 
 
-            (true)
+            true
         },
         0 => {
             //move
@@ -95,11 +95,11 @@ fn take_turn(map: &mut Map, snake: &mut Snake) -> bool{
             map[next_x as usize][next_y as usize] = snake.size;
             snake.x = next_x;
             snake.y = next_y;
-            (true)
+            true
         },
         _ => {
             //dead
-            (false)
+            false
         }
     }
  
@@ -172,13 +172,13 @@ fn main() {
                     let f64_y2 = TILE_SIZE;
         
                     let tile_color = if map[x as usize][y as usize] == -1 {
-                        (COLOR_RED)
+                        COLOR_RED
                     }else if x as i32 == snake.x && y as i32 == snake.y {
-                        (COLOR_GREEN)
+                        COLOR_GREEN
                     }else if map[x as usize][y as usize] > 0 {
-                        (COLOR_YELLOW)
+                        COLOR_YELLOW
                     }else {
-                        (COLOR_BLACK)
+                        COLOR_BLACK
                     };
                 
                     rectangle(tile_color, 
